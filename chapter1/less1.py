@@ -28,3 +28,11 @@ import re
 
 # randStr = '12345'
 # print("Number of matches {}".format(len(re.findall("\d{1}", randStr))))
+
+theStr = 'gigimarga@gmail.com'
+thePattern = '\w{2,20}\@\w{2,20}\.\w{3}'
+m = re.search(thePattern, theStr)
+if m is not None:
+    print("Am gasit patternul")
+else:
+    print("No such luck")
