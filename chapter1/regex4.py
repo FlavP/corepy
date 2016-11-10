@@ -22,9 +22,21 @@ import re
 # print("Your birth Year", bdRegex.group(2))
 # print("Your birth Day", bdRegex.group(3))
 #named group
-randStr = "December 21 1974"
-regex = r"^(?P<month>\w+)\s(?P<day>\d+)\s(?P<year>\d{4})"
-matches = re.search(regex, randStr)
-print("Month :", matches.group('month'))
-print("Day :", matches.group('day'))
-print("Year :", matches.group('year'))
+# randStr = "December 21 1974"
+# regex = r"^(?P<month>\w+)\s(?P<day>\d+)\s(?P<year>\d{4})"
+# matches = re.search(regex, randStr)
+# print("Month :", matches.group('month'))
+# print("Day :", matches.group('day'))
+# print("Year :", matches.group('year'))
+
+# randStr = "d+b@aol.com a_1@yahoo.co.uk A-100@m-b.INTERNATIONAL"
+# regex = re.compile(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9_.+-]+\.[a-zA-Z0-9_.+-]+")
+# matches = re.findall(regex, randStr)
+# for i in matches:
+#     print(i)
+
+randStr = "14125551212 4125551212 (412)5551212 412 555 1212 412-555-1212 1-412-555-1212"
+regex = re.compile(r"((1?)(-| ?)(\()?(\d{3})(\)|-| |\) )?(\d{3})(-| )?(\d{4}|\d{4}) )")
+matches = re.findall(regex, randStr)
+for i in matches:
+    print(i[0].lstrip())
