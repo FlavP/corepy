@@ -17,7 +17,7 @@ def train(X, y):
         layer2 = sig(np.dot(layer1, weights_1))
         error_l2 = y - layer2
         delta_l2 = error_l2 * sig(layer2, deriv=True)
-        error_l1 = layer2.dot(error_l2.T)
+        error_l1 = delta_l2.dot(error_l2.T)
         delta_l1 = error_l1 * sig(layer1, deriv=True)
         weights_1 += layer1.T.dot(delta_l2)
         weights_0 += layer0.T.dot(delta_l1)
