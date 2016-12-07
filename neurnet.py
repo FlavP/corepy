@@ -2,7 +2,7 @@ import numpy as np
 
 def sig(X, deriv=False):
     if deriv is True:
-        return X * (1 - X)
+        return np.exp(-X)/((1 + np.exp(-X))**2)
     return 1/(1 + np.exp(-X))
 
 def train(X, y):
@@ -29,8 +29,8 @@ def train(X, y):
 #print(weights_1)
 
 
-X = np.array([[0,0,1],[0,1,1],[1,0,1],[1,1,1]])
-y = np.array([[0,1,1,0]]).T
+X = np.array([[0,0],[0,1],[1,0],[1,1]])
+y = np.array([[0,0,0,1]]).T
 
 halm = train(X, y)
 print(halm)
