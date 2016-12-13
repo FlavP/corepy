@@ -11,7 +11,7 @@ class TwoLayerNN:
 
     def sigmoid(self, z, deriv=False):
         if deriv is True:
-            return np.exp(-z)/((1 + np.exp(-z))**2)
+            return z * (1 - z)
         else:
             return 1/(1 + np.exp(-z))
 

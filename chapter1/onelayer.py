@@ -7,7 +7,7 @@ class OneLayerNN():
 
     def sigmoid(self, z, deriv=False):
         if deriv is True:
-            return np.exp(-z)/((1 + np.exp(-z))**2)
+            return z * (1 - z)
         else:
             return 1/(1 + np.exp(-z))
 
@@ -15,7 +15,7 @@ class OneLayerNN():
         for iter in range(n_iter):
             y_caciula = self.think(X)
             error = y - y_caciula
-            delta_error = error * self.sigmoid(y, deriv=True)
+            delta_error = error * self.sigmoid(y_caciula, deriv=True)
             self.weights += np.dot(X.T, delta_error)
 
     def think(self, X):

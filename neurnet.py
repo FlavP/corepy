@@ -29,8 +29,8 @@ def train(X, y):
 #print(weights_1)
 
 
-X = np.array([[0,0],[0,1],[1,0],[1,1]])
-y = np.array([[0,0,0,1]]).T
+X = np.array([[0,0,1],[0,1,1],[1,0,1],[1,1,1]])
+y = np.array([[0,1,1,0]]).T
 
 halm = train(X, y)
 print(halm)
